@@ -5,9 +5,11 @@ app.listen(1339);
 console.log("Server Started.");
 
 io.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
+  socket.emit('console_message', { status: 'Connected! Hello World!' });
+
+  socket.on('test_connect', function (data) {
     console.log(data);
+    socket.emit('console_message', { status: 'Payload Received Properly.' });
   });
 });
 
