@@ -1,0 +1,23 @@
+{
+  "name": "synctubejs-backend",
+  "version": "1.0.0",
+  "description": "The backend for SyncTubeJS",
+  "main": "app.js",
+  "dependencies": {
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SyncTubeJS/SyncTubeJS-Backend.git"
+  },
+  "author": "BlueOrchard + KJAOnline",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SyncTubeJS/SyncTubeJS-Backend/issues"
+  },
+  "homepage": "https://github.com/SyncTubeJS/SyncTubeJS-Backend#readme"
+}
