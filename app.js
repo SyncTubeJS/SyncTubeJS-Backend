@@ -1,8 +1,8 @@
-var app = require('http').createServer(handler)
+var app = require('http').createServer()
 var io = require('socket.io')(app);
-var fs = require('fs');
 
-app.listen(3000);
+app.listen(1339);
+console.log("Server Started.");
 
 io.on('connection', function (socket) {
   socket.emit('news', { hello: 'world' });
