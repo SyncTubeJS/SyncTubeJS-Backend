@@ -16,21 +16,26 @@ io.on('connection', function (socket) {
   // });
 
   // Logic that runs when a user joins an existing room or creates a new room
-  socket.on('join_create_room', function(room_name){
-    if(room_name.length > 0) {
-      socket.join(room_name)
+  socket.on('join_create_room', function(roomName){
+    if(roomName.length > 0) {
+      socket.join(roomName)
+      io.in(roomName).emit('addNewMessage', {
+        message: "New User Joined!",
+        user: "Server",
+        type: "status"
+      })
     } else {
       console.log('nope!')
     }
 
     // ONE AT A TIME This runs the Vuex action SOCKET_addRoomAction
-    socket.emit('addRoomAction', room_name)
+    socket.emit('addRoomAction', roomName)
   })
 
   // "Logic" for chat function
-  socket.on('new_message', function(message){
-		console.log(message)
-		socket.emit('addNewMessage', message)
+  socket.on('new_message', function(payload){
+		console.log(payload)
+		io.in(payload.room).emit('addNewMessage', {...payload, type: "user" })
   });
 
   //  -- TODO: CREATE SOCKET THAT ACCEPTS A YOUTUBE URL
