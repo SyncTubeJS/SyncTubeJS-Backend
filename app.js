@@ -34,8 +34,12 @@ io.on('connection', function (socket) {
 
   // "Logic" for chat function
   socket.on('new_message', function(payload){
+		let now = new Date();
+		let formattedTime = now.toLocaleTimeString()
+		
 		console.log(payload)
-		io.in(payload.room).emit('addNewMessage', {...payload, type: "user" })
+
+		io.in(payload.room).emit('addNewMessage', {...payload, type: "user", time: formattedTime })
   });
 
   //  -- TODO: CREATE SOCKET THAT ACCEPTS A YOUTUBE URL
