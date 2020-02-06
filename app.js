@@ -10,14 +10,24 @@ io.on('connection', function (socket) {
   socket.on('test_connect', function (data) {
     console.log(data);
     console.log(socket.id)
+
     socket.emit('console_message', { status: 'Payload Received Properly.' });
   });
+
+
   socket.on('create_room', function(room_name){
-    socket.join(room_name)
+    if(room_name.length > 0) {
+      socket.join(room_name)
+    } else {
+      console.log('nope!')
+    }
     
     let allRooms = Object.keys(io.sockets.adapter.rooms)
     console.log(allRooms)
+    socket.emit('addRoomAction', room_name)
   })
+
+
 });
 
 // TODO: CREATE ROOM
