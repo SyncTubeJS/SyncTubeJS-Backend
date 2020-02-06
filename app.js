@@ -29,10 +29,10 @@ io.on('connection', function (socket) {
     console.log(allRooms)
 
     // ONE AT A TIME This runs the Vuex action SOCKET_addRoomAction
-    // socket.emit('addRoomAction', room_name)
+    socket.emit('addRoomAction', room_name)
 
     // COMPLETELY CHANGE STATE
-    socket.emit('changeRoomAction', allRooms)
+    // socket.emit('changeRoomAction', allRooms)
   })
 
 
