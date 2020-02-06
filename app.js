@@ -22,9 +22,17 @@ io.on('connection', function (socket) {
       console.log('nope!')
     }
     
+    // @joe Should we completely change store with all Rooms instead of pushing just one room at a time? I have both below
+
+
     let allRooms = Object.keys(io.sockets.adapter.rooms)
     console.log(allRooms)
-    socket.emit('addRoomAction', room_name)
+
+    // ONE AT A TIME This runs the Vuex action SOCKET_addRoomAction
+    // socket.emit('addRoomAction', room_name)
+
+    // COMPLETELY CHANGE STATE
+    socket.emit('changeRoomAction', allRooms)
   })
 
 
