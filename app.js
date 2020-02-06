@@ -48,5 +48,5 @@ io.on('connection', function (socket) {
 
   // -- TODO: CREATE A SOCKET THAT SYNCS TIME UP WHEN THE HOST SKIPS AROUND IN A VIDEO
 
-  // -- TODO: I HELPED I PROMISE 
+  // -- TODO: I HELPED I PROMISE, PINKY SWEAR
 });
