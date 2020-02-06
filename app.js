@@ -29,7 +29,8 @@ io.on('connection', function (socket) {
 
   // "Logic" for chat function
   socket.on('new_message', function(message){
-    socket.emit('addNewMessage', message)
+		console.log(message)
+		socket.emit('addNewMessage', message)
   });
 
   //  -- TODO: CREATE SOCKET THAT ACCEPTS A YOUTUBE URL
